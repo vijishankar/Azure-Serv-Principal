@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Example') {
             steps {
-                   withCredentials([usernamePassword(credentialsId: 'myAzureCredential', passwordVariable: 'z81gDx8hdH1CWb4RMR-6RY3t3.hhvoLaTQ', usernameVariable: 'd56220d8-aa01-4bad-ae20-1ddd51e275a5')]) {
+                   withCredentials([usernamePassword(credentialsId: 'myAzureCredential', passwordVariable: 'AZURE_CLIENT_SECRET', usernameVariable: 'AZURE_CLIENT_ID')]) {
                             sh 'az login --service-principal -u $AZURE_CLIENT_ID -p $AZURE_CLIENT_SECRET -t $AZURE_TENANT_ID'
                             sh 'az account set -s $AZURE_SUBSCRIPTION_ID'
                             sh 'az ...'
